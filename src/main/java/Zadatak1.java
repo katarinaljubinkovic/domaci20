@@ -29,7 +29,7 @@ public class Zadatak1 {
         fullName.sendKeys(name);
 
         WebElement emailAddress = driver.findElement(By.id("userEmail"));
-        String email = "kataljubinkovic@gmail.com";
+        String email = "katarina@gmail.com";
         emailAddress.sendKeys(email);
 
         WebElement currentAddress = driver.findElement(By.id("currentAddress"));
@@ -44,14 +44,26 @@ public class Zadatak1 {
         WebElement submit = driver.findElement(By.id("submit"));
         submit.click();
 
-        driver.quit();
+//POREĐENJE STRINGOVA
                                 //uklanjanje belina u Stringu između reči
-        String nameWithoutSpace = name.replaceAll("\\s", "");  //IZGUGLALA
-        String nameModified = nameWithoutSpace.toLowerCase();
+        //String nameWithoutSpace = name.replaceAll("\\s", "");  //IZGUGLALA
+        //String nameModified = nameWithoutSpace.toLowerCase();
 
-        String emailSub = email.substring(0, 15);
+        //String emailSub = email.substring(0, 15);
 
-        if (nameModified.equals(emailSub)) {
+        //if (nameModified.equals(emailSub)) {
+            //System.out.println("Imena iz polja fullName i emailAddress su ista.");
+        //} else {
+           // System.out.println("Imena iz polja fullName i emailAddress su različita.");
+        //}
+
+        WebElement name1 = driver.findElement(By.id("name"));
+        WebElement email1 = driver.findElement(By.id("email"));
+
+        System.out.println(name1.getText());
+        System.out.println(email1.getText());
+
+        if (name1.getText().substring(5, 13).toLowerCase().equals(email1.getText().substring(6,14))) {
             System.out.println("Imena iz polja fullName i emailAddress su ista.");
         } else {
             System.out.println("Imena iz polja fullName i emailAddress su različita.");

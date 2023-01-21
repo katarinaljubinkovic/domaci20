@@ -24,12 +24,12 @@ public class Zadatak1 {
 
         Faker faker = new Faker();
 
-        WebElement fullName = driver.findElement(By.id("userName"));
-        String name = "Katarina Ljubinkovic";
-        fullName.sendKeys(name);
+        WebElement userName = driver.findElement(By.id("userName"));
+        String fullName = "Katarina Ljubinkovic";
+        userName.sendKeys(fullName);
 
         WebElement emailAddress = driver.findElement(By.id("userEmail"));
-        String email = "katarina@gmail.com";
+        String email = "katarinaljubinkovic@gmail.com";
         emailAddress.sendKeys(email);
 
         WebElement currentAddress = driver.findElement(By.id("currentAddress"));
@@ -60,10 +60,19 @@ public class Zadatak1 {
         WebElement name1 = driver.findElement(By.id("name"));
         WebElement email1 = driver.findElement(By.id("email"));
 
-        System.out.println(name1.getText());
-        System.out.println(email1.getText());
+        String name = name1.getText().toLowerCase();
+        System.out.println(name);
+        String namee = name.substring(5);
+        System.out.println(namee);
+        String nameee = namee.replaceAll("\\s", "");
+        System.out.println(nameee);
 
-        if (name1.getText().substring(5, 13).toLowerCase().equals(email1.getText().substring(6,14))) {
+        String eMail = email1.getText().substring(6, name.length());
+        System.out.println(eMail);
+
+
+
+        if (nameee.equals(eMail)) {
             System.out.println("Imena iz polja fullName i emailAddress su ista.");
         } else {
             System.out.println("Imena iz polja fullName i emailAddress su različita.");
